@@ -16,6 +16,8 @@ for i in range(10):
     else:
         print('Todos os pokemons morreram')
     pkm = pkm + 1
+
+    
 print(lista_pkm)
 print(' ')
 escolha = input('Escolha um pokemon\n')
