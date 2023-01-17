@@ -1,24 +1,43 @@
 import requests
+import pandas as pd
 
 lista_pkm = []
-url = f'https://pokeapi.co/api/v2/pokemon/{id}/'
 pkm = 1
+seu_pkm  = []
+
+
+class Resques_pet:
+    def __init__(self,escolha):
+        self.escolha = escolha
+        if escolha:
+            url = f'https://pokeapi.co/api/v2/pokemon/{escolha}/'
+            response = requests.get(url, timeout=3)
+            pkms_data = response.json()
+            
+            datapk = pd.Series(pkms_data, name='Seu pokemon')
+            pkm_sts = pd.DataFrame(datapk, index=['name', 'height', 'weight'])
+        print(pkm_sts)
 
 
 
-for i in range(10):
+for i in range(1):
     url = f'https://pokeapi.co/api/v2/pokemon/{pkm}/'
-    response = requests.get(url)
-    data = response.json()
+    response = requests.get(url, timeout=3)
+    pkms_data = response.json()
     if response.status_code == 200:
         
-        lista_pkm.append(data['name'])
+        lista_pkm.append([pkms_data['name']])
     else:
         print('Todos os pokemons morreram')
     pkm = pkm + 1
 
 
 print(lista_pkm)
-print(' ')
-escolha = input('Escolha um pokemon\n')
+escolha = input('\nEscolha um pokemon\n')
 
+
+
+        
+
+
+Resques_pet(escolha)
