@@ -6,7 +6,7 @@ pkm = 1
 seu_pkm  = []
 
 
-class Resques_pet:
+class Resquest_pet:
     def __init__(self,escolha):
         self.escolha = escolha
         if escolha:
@@ -40,4 +40,4 @@ escolha = input('\nEscolha um pokemon\n')
         
 
 
-Resques_pet(escolha)
+Resquest_pet(escolha)
